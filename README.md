@@ -31,6 +31,39 @@ GetProcessor#process
 processingOver true
 ```
 
+Output after generating source file PersonGet:
+
+```sh
+$ ./compile.sh
+----------- Compiling Get.java
+GetProcessor#init
+GetProcessor#getSupportedSourceVersion
+----------- Compiling GetProcessor.java
+GetProcessor#init
+GetProcessor#getSupportedSourceVersion
+----------- Compiling Person.java
+GetProcessor#init
+GetProcessor#getSupportedSourceVersion
+GetProcessor#process
+processingOver false
+Get
+[name]
+Element: name
+Element TypeMirror: java.lang.String
+Element Kind: FIELD
+Element modifiers: []
+name
+GetProcessor#process
+processingOver false
+GetProcessor#process
+processingOver true
+----------- Compiling main.java
+GetProcessor#init
+GetProcessor#getSupportedSourceVersion
+----------- Running main
+Leandro
+```
+
 ## ANNOTATION PROCESSING
 
 https://docs.oracle.com/javase/7/docs/technotes/tools/solaris/javac.html#processing
@@ -47,3 +80,10 @@ After scanning the source files and classes on the command line to determine wha
 If any processors generate any new source files, another round of annotation processing will occur: any newly generated source files will be scanned, and the annotations processed as before. Any processors invoked on previous rounds will also be invoked on all subsequent rounds. This continues until no new source files are generated.
 
 After a round occurs where no new source files are generated, the annotation processors will be invoked one last time, to give them a chance to complete any work they may need to do. Finally, unless the -proc:only option is used, the compiler will compile the original and all the generated source files.
+
+## Creating a Java source file - JavaFileObject
+
+https://github.com/eugenp/tutorials/blob/master/annotations/annotation-processing/src/main/java/com/baeldung/annotation/processor/BuilderProcessor.java#L56
+
+https://www.baeldung.com/java-annotation-processing-builder
+
